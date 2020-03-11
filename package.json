@@ -1,0 +1,30 @@
+{
+  "name": "pagination-is-noob",
+  "version": "0.0.1",
+  "description": "Easy Pagination for discord.js 12",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cotwo0139/spagination.git"
+  },
+  "keywords": [
+    "discord.js",
+    "pagination"
+  ],
+  "author": "Sangoon_Is_Noob#1683",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cotwo0139/spagination/issues"
+  },
+  "homepage": "https://github.com/cotwo0139/spagination#readme",
+  "dependencies": {
+    "discord.js": "^12.0.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {}
+}
