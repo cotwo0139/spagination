@@ -63,6 +63,21 @@ class PaginationEmbed {
     await this._handleControlKeys(m)
   }
 
+  /**
+   * @description - Edit Message
+   * @param {Discord.TextChannel} channel - Textchannel to send it.
+   * @param {String} message - Message With Embed
+   */
+  async edit (m, message) {
+    if (this.embeds.length === 0) return new Error('The number of Embeds must be at least one.')
+    const params = []
+    if (message) params.push(message)
+    params.push(this.getEmbed())
+    await m.edit(...params)
+    await this._massReact(m, this.controlKeys)
+    await this._handleControlKeys(m)
+  }
+
   async _handleControlKeys (m) {
     const filter = (reaction, user) => {
       const flag = this.controlKeys.includes(reaction.emoji.name) && this.users.includes(user.id)
