@@ -1,6 +1,6 @@
 {
   "name": "pagination-is-noob",
-  "version": "0.0.2",
+  "version": "0.1.3",
   "description": "Easy Pagination for discord.js 12",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,7 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "docma": "^3.2.2"
+  }
 }

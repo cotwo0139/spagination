@@ -6,7 +6,6 @@ class PaginationEmbed {
    * @param {String} options.pageText - footer text if none, unset
    */
   constructor (options = {}) {
-    super()
     this.index = 0
     this.embeds = []
     this.users = [] // User ID
@@ -18,7 +17,9 @@ class PaginationEmbed {
   }
 
   /**
-   * @param {*} embed
+   * @description - Add Embed Page
+   * @param {Discord.MessageEmbed} embed - Discord Embed
+   * @returns {PaginationEmbed} - this class
    */
   addEmbed (embed) {
     if (!embed) return new Error('embed is not provided')
@@ -27,18 +28,31 @@ class PaginationEmbed {
     return this
   }
 
+  /**
+   * @description - Add User for control page
+   * @param {String} id - User ID for control this page
+   * @returns {PaginationEmbed} - this class
+   */
   addUser (id) {
     if (!id) return new Error('User ID is not provided')
     this.users.push(id)
     return this
   }
 
+  /**
+   * @description - get page of embed and set footer
+   */
   getEmbed () {
     const embed = this.embeds[this.index]
     if (!this._pageText) return embed
     else return embed.setFooter(this.pageText)
   }
 
+  /**
+   * @description - Send Pages to Textchannel
+   * @param {Discord.TextChannel} channel - Textchannel to send it.
+   * @param {String} message - Message With Embed
+   */
   async send (channel, message) {
     if (this.embeds.length === 0) return new Error('The number of Embeds must be at least one.')
     const params = []
@@ -78,6 +92,11 @@ class PaginationEmbed {
     else return null
   }
 
+  /**
+   * @description - React Array of emojis
+   * @param {Discord.Message} m - Message to React Emojis
+   * @param {Array} array - Emojis Array
+   */
   async _massReact (m, array) {
     for (const item of array) {
       await m.react(item)

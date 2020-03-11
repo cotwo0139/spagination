@@ -1,14 +1,14 @@
-# pagination-is-noob
-Pagination For Discord.js
 
-
-## Example
-```js
-const Discord = require('discord.js')
+<html><head></head><body><h1 id="pagination-is-noob">pagination-is-noob</h1>
+<hr />
+<p>Pagination For Discord.js</p>
+<h2 id="example">Example</h2>
+<hr />
+<pre><code class="js">const Discord = require('discord.js')
 const Pagenation = require('./index')
 const Client = new Discord.Client()
 
-Client.on('message', async (m) => {
+Client.on('message', async (m) =&gt; {
   if (m.content === 'test') {
     const pagination = new Pagenation.Pagination({ pageText: 'Page %CURRENT% / %ALL%' })
     pagination.addEmbed(new Discord.MessageEmbed().setColor('#FFBABA').setTitle('Page 1'))
@@ -19,5 +19,5 @@ Client.on('message', async (m) => {
   }
 })
 
-Client.login('')
-```
+Client.login('')</code></pre>
+</body></html>

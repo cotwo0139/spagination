@@ -1,20 +1,16 @@
-const D = require('discord.js')
-const P = require('./index')
-const c = new D.Client()
+const Discord = require('discord.js')
+const Pagenation = require('./src/lib/index')
+const Client = new Discord.Client()
 
-c.on('message', async (m) => {
+Client.on('message', async (m) => {
   if (m.content === 'test') {
-    const pagination = new P.Pagination({ pageText: '페이지 %CURRENT% / %ALL%' })
-    pagination.addEmbed(new D.MessageEmbed().setColor('#FFBABA').setTitle('테스트 1'))
-    pagination.addEmbed(new D.MessageEmbed().setColor('#FFBABA').setTitle('테스트 2'))
-    pagination.addEmbed(new D.MessageEmbed().setColor('#FFBABA').setTitle('테스트 3'))
+    const pagination = new Pagenation.Pagination({ pageText: '페이지 %CURRENT% / %ALL%' })
+    pagination.addEmbed(new Discord.MessageEmbed().setColor('#FFBABA').setTitle('테스트 1'))
+    pagination.addEmbed(new Discord.MessageEmbed().setColor('#FFBABA').setTitle('테스트 2'))
+    pagination.addEmbed(new Discord.MessageEmbed().setColor('#FFBABA').setTitle('테스트 3'))
     pagination.addUser(m.author.id)
     await pagination.send(m.channel)
   }
 })
 
-c.on('debug', async (m) => {
-  console.log(m)
-})
-
-c.login('')
+Client.login('')
