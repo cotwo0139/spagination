@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const Pagenation = require('./src/lib/index')
+const Pagenation = require('./')
 const Client = new Discord.Client()
 
 Client.on('message', async (m) => {
@@ -13,4 +13,4 @@ Client.on('message', async (m) => {
   }
 })
 
-Client.login('')
+Client.login('NTc3MDU1MjYxNzg1NzE4Nzkz.Xmmdhg.bgx5oUZsj-UzcC3dP-_UlhoCNdo')

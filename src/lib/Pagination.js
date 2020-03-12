@@ -85,20 +85,21 @@ class PaginationEmbed {
       return flag
     }
     const reaction = await m.awaitReactions(filter, { max: this.users.length, timeout: this.timeout, errors: ['time'] })
-    if (this.controlKeys.findIndex(e => e === reaction.first().emoji.name) === 0) {
-      this.index--
-      if (this.index < 0) this.index = this.embeds.length - 1
-      await m.edit(this.getEmbed())
-      await this._handleControlKeys(m)
-    }
-    if (this.controlKeys.findIndex(e => e === reaction.first().emoji.name) === 1) {
-      this.index++
-      if (this.index >= this.embeds.length) this.index = 0
-      await m.edit(this.getEmbed())
-      await this._handleControlKeys(m)
-    }
-    if (this.controlKeys.findIndex(e => e === reaction.first().emoji.name) === 2) {
-      m.reactions.removeAll()
+    switch (this.controlKeys.findIndex(e => e === reaction.first().emoji.name)) {
+      case 0:
+        this.index--
+        if (this.index < 0) this.index = this.embeds.length - 1
+        await m.edit(this.getEmbed())
+        await this._handleControlKeys(m)
+        break
+      case 1:
+        this.index++
+        if (this.index >= this.embeds.length) this.index = 0
+        await m.edit(this.getEmbed())
+        await this._handleControlKeys(m)
+        break
+      default:
+        m.reactions.removeAll()
     }
   }
 
