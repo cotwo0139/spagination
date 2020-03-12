@@ -103,8 +103,11 @@ class PaginationEmbed {
   }
 
   get pageText () {
-    if (this._pageText instanceof String) return this._pageText.replace('%ALL%', this.embeds.length).replace('%CURRENT%', this.index + 1)
-    else return null
+    if (typeof this._pageText === 'string') return this._pageText.replace('%ALL%', this.embeds.length).replace('%CURRENT%', this.index + 1)
+    else {
+      this._pageText = '%CURRENT% / %ALL%'
+      return this.pageText
+    }
   }
 
   /**
