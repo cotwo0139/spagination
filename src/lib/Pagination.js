@@ -13,7 +13,7 @@ class PaginationEmbed {
     else this.controlKeys = ['◀️', '▶️', '❌']
     if (options.timeout) this.timeout = options.timeout
     else this.timeout = 15000
-    this._pageText = options.pageText
+    this._pageText = options.pageText || '%CURRENT% / %ALL%'
   }
 
   /**
@@ -104,10 +104,7 @@ class PaginationEmbed {
 
   get pageText () {
     if (typeof this._pageText === 'string') return this._pageText.replace('%ALL%', this.embeds.length).replace('%CURRENT%', this.index + 1)
-    else {
-      this._pageText = '%CURRENT% / %ALL%'
-      return this.pageText
-    }
+    else return null
   }
 
   /**
