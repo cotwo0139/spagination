@@ -1,6 +1,6 @@
 {
   "name": "pagination-is-noob",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Easy Pagination for discord.js 12",
   "main": "index.js",
   "scripts": {

@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-class PaginationEmbed {
+class PaginationManager {
   /**
    * @param {Array} options.controlKeys - control Keys (Array Of Emoji) ['◀️', '▶️', '❌']
    * @param {Number} options.timeout - EmojiCollector TimeOut
@@ -23,7 +23,6 @@ class PaginationEmbed {
    */
   addEmbed (embed) {
     if (!embed) return new Error('embed is not provided')
-    if (!(embed instanceof Discord.MessageEmbed)) return new Error('embed is must be Discord.MessageEmbed')
     this.embeds.push(embed)
     return this
   }
@@ -120,4 +119,4 @@ class PaginationEmbed {
   }
 }
 
-module.exports = PaginationEmbed
+module.exports = PaginationManager
