@@ -23,7 +23,6 @@ class PaginationManager {
    */
   addEmbed (embed) {
     if (!embed) return new Error('embed is not provided')
-    if ((embed instanceof Discord.MessageEmbed) === false) return new Error('embed is must be Discord.MessageEmbed')
     this.embeds.push(embed)
     return this
   }
